@@ -31,6 +31,7 @@ jobs:
       - name: Build Snippet File
         run: |
           cd tools/applicationinsights-web-snippet
+          npm install -g @microsoft/rush
           rush update
           npm install
           npm run build
