@@ -28,6 +28,16 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      - name: Rush link
+        run: |
+          npm install -g @microsoft/rush
+          rush update
+      - name: Build Snippet File
+          cd tools/applicationinsights-web-snippet
+          npm install
+          npm run build
+      - name: Inject Script
+        run:  node ./tools/github-page-script-injection/injectScript.js
       - name: Setup Pages
         uses: actions/configure-pages@v4
       - name: Build with Jekyll
