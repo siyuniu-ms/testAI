@@ -30,9 +30,9 @@ jobs:
         uses: actions/checkout@v4
       - name: Build Snippet File
         run: |
-          cd tools/applicationinsights-web-snippet
           npm install -g @microsoft/rush
           rush update
+          cd tools/applicationinsights-web-snippet
           npm install
           npm run build
       - name: Inject Script
