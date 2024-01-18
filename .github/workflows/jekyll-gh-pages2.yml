@@ -28,11 +28,19 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Rush link
-        run: |
-          npm install 
-          rush update --recheck --purge --full
-          rush rebuild
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: Update rush shrinkwrap dependencies (for different node versions)
+        run: node common/scripts/install-run-rush.js update --full
+      - run: npm install rollup -g
+      - run: npm install grunt-cli
+      - run: npm install
+      - run: node common/scripts/install-run-rush.js check
+      - run: node common/scripts/install-run-rush.js install
+      - run: npm run build --verbose
+        timeout-minutes: 20
       - name: Setup Pages
         uses: actions/configure-pages@v4
       - name: Build with Jekyll
