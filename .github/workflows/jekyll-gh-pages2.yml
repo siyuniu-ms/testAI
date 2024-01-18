@@ -31,7 +31,7 @@ jobs:
       - name: Rush link
         run: |
           npm install -g @microsoft/rush
-          rush update
+          rush update --recheck --purge --full
       - name: Build Snippet File
         run: |
           cd tools/applicationinsights-web-snippet
