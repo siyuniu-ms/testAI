@@ -36,8 +36,6 @@ jobs:
           cd tools/applicationinsights-web-snippet
           npm install
           npm run build
-      - name: Inject Script
-        run:  node ./tools/github-page-script-injection/injectScript.js
       - name: Setup Pages
         uses: actions/configure-pages@v4
       - name: Build with Jekyll
