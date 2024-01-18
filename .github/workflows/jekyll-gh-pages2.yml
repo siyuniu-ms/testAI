@@ -35,6 +35,8 @@ jobs:
       - name: Build Snippet File
         run: |
           cd tools/applicationinsights-web-snippet
+      - name: Test
+        run: |
           npm install
           npm run build
       - name: Setup Pages
