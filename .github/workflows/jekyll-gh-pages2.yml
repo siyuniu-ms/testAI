@@ -36,8 +36,6 @@ jobs:
         run: |
           cd tools/applicationinsights-web-snippet
           pwd
-          echo "This is a sample text file." > sample.md
-          ls
           npm install
           npm run build
       - name: Setup Pages
