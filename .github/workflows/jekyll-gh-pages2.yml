@@ -36,6 +36,8 @@ jobs:
         run: |
           cd tools/applicationinsights-web-snippet
           pwd
+          rm -rf node_modules
+          rm package-lock.json
           npm install
           npm run build
       - name: Setup Pages
