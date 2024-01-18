@@ -33,10 +33,10 @@ jobs:
           npm install -g @microsoft/rush
           rush update --recheck --purge --full
       - name: Build Snippet File
-        run: 
+        run: |
           cd tools/applicationinsights-web-snippet
-      - name: Display current directory
-        run: pwd 
+          pwd
+          echo "This is a sample text file." > sample.md
       - name: Test
         run: |
           npm install
