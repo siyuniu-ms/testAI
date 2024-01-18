@@ -30,7 +30,7 @@ jobs:
         uses: actions/checkout@v4
       - name: Rush link
         run: |
-          npm install -g @microsoft/rush
+          npm install 
           rush update --recheck --purge --full
           rush rebuild
       - name: Setup Pages
