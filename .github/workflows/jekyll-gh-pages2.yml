@@ -32,12 +32,7 @@ jobs:
         run: |
           npm install -g @microsoft/rush
           rush update --recheck --purge --full
-      - name: Build Snippet File
-        run: |
-          cd tools/applicationinsights-web-snippet
-          pwd
-          npm install
-          npm run build
+          rush rebuild
       - name: Setup Pages
         uses: actions/configure-pages@v4
       - name: Build with Jekyll
